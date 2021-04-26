@@ -37,8 +37,8 @@ export default {
 	width: 100%;
 	background-color: rgb(213, 206, 206);
 	font-size: 18px;
-	padding: 10px 20px;
-	border-radius: 25px;
+	padding: 8px;
+	border-radius: 8px;
 	color: #000;
 	background-color: #e6e7ec;
 	width: fit-content;

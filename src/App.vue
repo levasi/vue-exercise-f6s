@@ -1,7 +1,7 @@
 <template>
 	<div class="chat-app">
 		<conversationArea>
-			<messageEntry v-for="message in messages" :key="message.id" :message="message" />
+			<messageEntry v-for="message in getAllMessages" :key="message.id" :message="message" />
 		</conversationArea>
 		<composeSection v-model="message" />
 	</div>
@@ -34,15 +34,12 @@ export default {
 					message: newValue,
 					date: "2020-04-07 10:06:15"
 				})
-				this.message = null
 			}
+			this.message = null
 		}
 	},
 	computed: {
-		...mapGetters(["getAllMessages", "getCurrentUser"]),
-		messages() {
-			return this.getAllMessages
-		}
+		...mapGetters(["getAllMessages", "getCurrentUser"])
 	},
 	methods: {
 		...mapActions(["setAllMessages"])
