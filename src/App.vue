@@ -1,7 +1,7 @@
 <template>
 	<div class="chat-app">
 		<conversationArea>
-			<messageEntry v-for="message in getAllMessages" :key="message.id" :message="message" />
+			<messageEntry :fromCurrentUser="message.from.id === $store.getters.getCurrentUser.id" v-for="message in getAllMessages" :key="message.id" :message="message" />
 		</conversationArea>
 		<composeSection v-model="message" />
 	</div>
@@ -26,10 +26,10 @@ export default {
 					.dispatch("addNewMessage", {
 						id: 1000,
 						from: {
-							id: 48,
-							fistName: "Jack",
-							lastName: "Dowager",
-							thumbnail: "https://images.generated.photos/g232OgTeDpORCR483-Ko3acnrLoePZIbyMDabR64x2U/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzA3MDgyODAuanBn.jpg"
+							id: 23,
+							firstName: "Bob",
+							lastName: "Greatlance",
+							thumbnail: "https://images.generated.photos/c_mH5kvsgrsGhrN5GhQIIRdIIvoHP6G2ujkTs4c8XFM/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzAxMTk5OTguanBn.jpg"
 						},
 						message: newValue,
 						date: "2020-04-07 10:06:15"

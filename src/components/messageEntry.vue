@@ -24,15 +24,11 @@
 export default {
 	name: "MessageEntry",
 	data() {
-		return {
-			fromCurrentUser: false
-		}
+		return {}
 	},
 	props: {
-		message: {}
-	},
-	mounted() {
-		this.fromCurrentUser = this.message.from.id === this.$store.getters.getCurrentUser.id
+		message: {},
+		fromCurrentUser: null
 	}
 }
 </script>
