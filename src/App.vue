@@ -21,7 +21,7 @@ export default {
 	},
 	watch: {
 		message(newValue, oldValue) {
-			if (newValue) {
+			if (newValue && newValue.trim()) {
 				this.$store
 					.dispatch("addNewMessage", {
 						id: 1000,
