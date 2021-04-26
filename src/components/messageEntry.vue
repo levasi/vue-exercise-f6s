@@ -1,12 +1,22 @@
 <template>
 	<div v-if="fromCurrentUser" class="message-entry" :class="{ ['message-entry-from-current-user']: fromCurrentUser }">
-		<div class="thumb"></div>
-		<img :src="$store.getters.getCurrentUser.thumbnail" alt="" />
+		<div class="thumb">
+			<img :src="$store.getters.getCurrentUser.thumbnail" alt="" />
+			<span class="popover">
+				{{ message.from.firstName }}
+			</span>
+		</div>
+
 		{{ message.message }}
 	</div>
 	<div v-else class="message-entry" :class="{ ['message-entry-from-current-user']: fromCurrentUser }">
-		<div class="thumb"></div>
-		<img :src="'https://images.generated.photos/g232OgTeDpORCR483-Ko3acnrLoePZIbyMDabR64x2U/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzA3MDgyODAuanBn.jpg'" alt="" />
+		<div class="thumb">
+			<img :src="'https://images.generated.photos/g232OgTeDpORCR483-Ko3acnrLoePZIbyMDabR64x2U/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzA3MDgyODAuanBn.jpg'" alt="" />
+			<span class="popover">
+				{{ message.from.fistName }}
+			</span>
+		</div>
+
 		{{ message.message }}
 	</div>
 </template>
@@ -29,6 +39,23 @@ export default {
 </script>
 
 <style lang="scss">
+.popover {
+	display: none;
+	position: absolute;
+	text-align: center;
+	color: black;
+	width: 100%;
+	top: -20px;
+}
+.thumb {
+	position: relative;
+	display: block;
+	&:hover {
+		.popover {
+			display: block;
+		}
+	}
+}
 .message-entry {
 	word-break: break-all;
 	padding: 8px;

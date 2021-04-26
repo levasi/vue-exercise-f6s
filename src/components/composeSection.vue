@@ -16,17 +16,12 @@ export default {
 		}
 	},
 	methods: {
-		scrollToBottom(id) {
-			var div = document.getElementById("ConversationWrapper")
-			div.scrollTop = div.scrollHeight - div.clientHeight
-		},
 		onInput(e) {
 			this.newMessage = e.target.value
 		},
 		sendMessage(e) {
 			if (this.newMessage) {
 				this.$emit("update:modelValue", this.newMessage)
-				this.scrollToBottom()
 				this.newMessage = null
 			}
 		}

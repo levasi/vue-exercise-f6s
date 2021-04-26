@@ -36,13 +36,19 @@ export default {
 				})
 			}
 			this.message = null
+			this.scrollToBottom()
 		}
 	},
 	computed: {
 		...mapGetters(["getAllMessages", "getCurrentUser"])
 	},
 	methods: {
-		...mapActions(["setAllMessages"])
+		...mapActions(["setAllMessages"]),
+		scrollToBottom(id) {
+			var div = document.getElementById("ConversationWrapper")
+			console.log(div)
+			div.scrollTop = div.scrollHeight
+		}
 	},
 	components: {
 		composeSection,
