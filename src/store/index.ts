@@ -13,7 +13,7 @@ export default createStore({
 		SET_CURRENT_USER(state, payload) {
 			state.currentUser = payload
 		},
-		addNewMessage(state, payload) {
+		ADD_NEW_MESSAGE(state, payload) {
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
 			state.conversation[state.conversation.length] = payload
@@ -43,8 +43,11 @@ export default createStore({
 					console.log(error)
 				})
 		},
-		addNewMessage(context) {
-			context.commit("addNewMessage")
+		addNewMessage(context, payload) {
+			return new Promise((resolve, reject) => {
+				context.commit("ADD_NEW_MESSAGE", payload)
+				resolve(payload)
+			})
 		}
 	},
 	getters: {
