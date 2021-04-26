@@ -16,7 +16,6 @@ import { mapActions, mapGetters } from "vuex"
 export default {
 	data() {
 		return {
-			setCurrentUser: {},
 			message: ""
 		}
 	},
@@ -43,7 +42,7 @@ export default {
 		...mapGetters(["getAllMessages", "getCurrentUser"])
 	},
 	methods: {
-		...mapActions(["setAllMessages"]),
+		...mapActions(["setAllMessages", "setCurrentUser"]),
 		scrollToBottom(id) {
 			setTimeout(() => {
 				var div = document.getElementById("ConversationWrapper")
@@ -57,9 +56,8 @@ export default {
 		messageEntry
 	},
 	mounted() {
-		this.$store.commit("setCurrentUser")
-		// this.$store.commit("setAllMessages")
 		this.setAllMessages()
+		this.setCurrentUser()
 		this.currentUser = this.$store.getters.getCurrentUser
 	}
 }

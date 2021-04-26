@@ -1,18 +1,35 @@
 import { createStore } from "vuex"
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { conversation, currentUser } from "../mockapi.js"
 export default createStore({
 	state: {
 		conversation: [],
 		currentUser: {}
 	},
 	mutations: {
-		SET_ALL_MESSAGES(state, payload) {
-			state.conversation = JSON.parse(conversation)
+		async SET_ALL_MESSAGES(state) {
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+			// @ts-ignore
+			await import("../mockapi.js")
+				.then((api) => {
+					// Do something with the module.
+					state.conversation = JSON.parse(api.conversation)
+				})
+				.catch((error) => {
+					console.log(error)
+				})
 		},
-		setCurrentUser(state, payload) {
-			state.currentUser = JSON.parse(currentUser)
+		async SET_CURRENT_USER(state) {
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+			// @ts-ignore
+			await import("../mockapi.js")
+				.then((api) => {
+					// Do something with the module.
+					state.currentUser = JSON.parse(api.currentUser)
+				})
+				.catch((error) => {
+					console.log(error)
+				})
 		},
 		addNewMessage(state, payload) {
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -25,7 +42,7 @@ export default createStore({
 			context.commit("SET_ALL_MESSAGES")
 		},
 		setCurrentUser(context) {
-			context.commit("setCurrentUser")
+			context.commit("SET_CURRENT_USER")
 		},
 		addNewMessage(context) {
 			context.commit("addNewMessage")
