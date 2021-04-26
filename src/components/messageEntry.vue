@@ -48,7 +48,7 @@ export default {
 	word-break: break-all;
 	direction: ltr;
 	display: flex;
-	align-items: flex-enduj;
+	align-items: flex-end;
 	img {
 		max-width: 48px;
 		border-radius: 50%;
