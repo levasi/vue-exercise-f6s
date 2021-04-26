@@ -17,9 +17,7 @@ export default createStore({
 		addNewMessage(state, payload) {
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
-
 			state.conversation[state.conversation.length] = payload
-			console.log(state.conversation)
 		}
 	},
 	actions: {

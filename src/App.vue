@@ -3,7 +3,7 @@
 		<conversationArea>
 			<messageEntry v-for="message in messages" :key="message.id" :message="message" />
 		</conversationArea>
-		<composeSection v-model="message" @submit="sendReply" />
+		<composeSection v-model="message" />
 	</div>
 </template>
 
@@ -11,12 +11,31 @@
 import composeSection from "@/components/composeSection"
 import conversationArea from "@/components/conversationArea"
 import messageEntry from "@/components/messageEntry"
+
 import { mapActions, mapGetters } from "vuex"
 export default {
 	data() {
 		return {
 			setCurrentUser: {},
 			message: ""
+		}
+	},
+	watch: {
+		message(newValue, oldValue) {
+			if (newValue) {
+				this.$store.commit("addNewMessage", {
+					id: 1000,
+					from: {
+						id: 48,
+						fistName: "Jack",
+						lastName: "Dowager",
+						thumbnail: "https://images.generated.photos/g232OgTeDpORCR483-Ko3acnrLoePZIbyMDabR64x2U/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzA3MDgyODAuanBn.jpg"
+					},
+					message: newValue,
+					date: "2020-04-07 10:06:15"
+				})
+				this.message = null
+			}
 		}
 	},
 	computed: {
@@ -26,10 +45,7 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions(["setAllMessages"]),
-		sendReply() {
-			console.log(this.message)
-		}
+		...mapActions(["setAllMessages"])
 	},
 	components: {
 		composeSection,
@@ -38,10 +54,9 @@ export default {
 	},
 	mounted() {
 		this.$store.commit("setCurrentUser")
-		this.$store.commit("setAllMessages")
+		// this.$store.commit("setAllMessages")
 		this.setAllMessages()
 		this.currentUser = this.$store.getters.getCurrentUser
-		console.log(this.currentUser)
 	}
 }
 </script>
