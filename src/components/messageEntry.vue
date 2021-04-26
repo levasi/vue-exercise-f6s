@@ -76,6 +76,7 @@ export default {
 	flex-direction: row-reverse;
 	align-items: flex-end;
 	white-space: pre-wrap;
+	text-align: left;
 	img {
 		max-width: 48px;
 		border-radius: 50%;
