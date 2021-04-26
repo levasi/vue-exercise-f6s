@@ -46,7 +46,6 @@ export default {
 		...mapActions(["setAllMessages"]),
 		scrollToBottom(id) {
 			var div = document.getElementById("ConversationWrapper")
-			console.log(div)
 			div.scrollTop = div.scrollHeight
 		}
 	},

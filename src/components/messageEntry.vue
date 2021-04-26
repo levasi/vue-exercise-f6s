@@ -16,7 +16,6 @@
 				{{ message.from.fistName }}
 			</span>
 		</div>
-
 		{{ message.message }}
 	</div>
 </template>
@@ -76,6 +75,7 @@ export default {
 	display: flex;
 	flex-direction: row-reverse;
 	align-items: flex-end;
+	white-space: pre-wrap;
 	img {
 		max-width: 48px;
 		border-radius: 50%;
