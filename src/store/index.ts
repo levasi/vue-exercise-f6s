@@ -8,7 +8,7 @@ export default createStore({
 		currentUser: {}
 	},
 	mutations: {
-		setAllMessages(state, payload) {
+		SET_ALL_MESSAGES(state, payload) {
 			state.conversation = JSON.parse(conversation)
 		},
 		setCurrentUser(state, payload) {
@@ -24,7 +24,7 @@ export default createStore({
 	},
 	actions: {
 		setAllMessages(context) {
-			context.commit("setAllMessages")
+			context.commit("SET_ALL_MESSAGES")
 		},
 		setCurrentUser(context) {
 			context.commit("setCurrentUser")

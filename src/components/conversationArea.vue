@@ -17,8 +17,7 @@ export default {
 	display: flex;
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
-	-ms-flex-direction: column-reverse;
-	flex-direction: column-reverse;
+	flex-direction: column;
 	-webkit-box-pack: end;
 	-ms-flex-pack: end;
 	justify-content: flex-end;

@@ -11,7 +11,7 @@
 import composeSection from "@/components/composeSection"
 import conversationArea from "@/components/conversationArea"
 import messageEntry from "@/components/messageEntry"
-import { mapActions, mapState } from "vuex"
+import { mapActions, mapGetters } from "vuex"
 export default {
 	data() {
 		return {
@@ -20,9 +20,9 @@ export default {
 		}
 	},
 	computed: {
-		...mapState(["getAllMessages", "getCurrentUser"]),
+		...mapGetters(["getAllMessages", "getCurrentUser"]),
 		messages() {
-			return this.$store.getters.getAllMessages
+			return this.getAllMessages
 		}
 	},
 	methods: {
@@ -37,9 +37,9 @@ export default {
 		messageEntry
 	},
 	mounted() {
-		this.setAllMessages()
 		this.$store.commit("setCurrentUser")
 		this.$store.commit("setAllMessages")
+		this.setAllMessages()
 		this.currentUser = this.$store.getters.getCurrentUser
 		console.log(this.currentUser)
 	}
