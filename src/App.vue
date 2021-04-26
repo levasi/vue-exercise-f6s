@@ -34,7 +34,9 @@ export default {
 					date: "2020-04-07 10:06:15"
 				})
 			}
-			this.message = null
+			setTimeout(() => {
+				this.message = null
+			}, 0)
 			this.scrollToBottom()
 		}
 	},
