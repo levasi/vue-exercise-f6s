@@ -1,6 +1,8 @@
 <template>
-	<div class="conversation-area">
-		<slot></slot>
+	<div class="conversation-wrapper">
+		<div class="conversation-area">
+			<slot></slot>
+		</div>
 	</div>
 </template>
 
@@ -11,9 +13,12 @@ export default {
 </script>
 
 <style lang="scss">
+.conversation-wrapper {
+	height: 80vh;
+	overflow-y: scroll;
+}
 .conversation-area {
-	display: -webkit-box;
-	display: -ms-flexbox;
+	overflow: hidden;
 	display: flex;
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
@@ -22,6 +27,5 @@ export default {
 	-ms-flex-pack: end;
 	justify-content: flex-end;
 	position: relative;
-	overflow-y: scroll;
 }
 </style>

@@ -47,6 +47,16 @@ export default {
 </script>
 
 <style lang="scss">
+body {
+	margin: 0;
+}
+#app {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	overflow: hidden;
+}
 .chat-app {
 	max-width: 500px;
 	width: 100%;
