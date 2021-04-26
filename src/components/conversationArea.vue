@@ -21,5 +21,7 @@ export default {
 	-webkit-box-pack: end;
 	-ms-flex-pack: end;
 	justify-content: flex-end;
+	position: relative;
+	overflow-y: scroll;
 }
 </style>

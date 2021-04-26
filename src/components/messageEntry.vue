@@ -34,20 +34,20 @@ export default {
 	padding: 8px;
 	border-radius: 8px;
 	max-width: 60%;
+	width: 100%;
 	background-color: rgb(213, 206, 206);
 	font-size: 18px;
 	padding: 10px 20px;
 	border-radius: 25px;
 	color: #000;
 	background-color: #e6e7ec;
-	width: -webkit-fit-content;
-	width: -moz-fit-content;
 	width: fit-content;
 	position: relative;
 	margin: 15px 0;
 	word-break: break-all;
-	direction: ltr;
+	direction: rtl;
 	display: flex;
+	flex-direction: row-reverse;
 	align-items: flex-end;
 	img {
 		max-width: 48px;
@@ -57,11 +57,11 @@ export default {
 .message-entry-from-current-user {
 	text-align: right;
 	color: #fff;
-	margin-left: auto;
+	margin-right: auto;
 	background-color: #00a9de;
 	display: flex;
 	align-items: flex-end;
-	flex-direction: row-reverse;
+	flex-direction: row;
 	img {
 		margin-left: 12px;
 	}
