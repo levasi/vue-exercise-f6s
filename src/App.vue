@@ -45,8 +45,10 @@ export default {
 	methods: {
 		...mapActions(["setAllMessages"]),
 		scrollToBottom(id) {
-			var div = document.getElementById("ConversationWrapper")
-			div.scrollTop = div.scrollHeight
+			setTimeout(() => {
+				var div = document.getElementById("ConversationWrapper")
+				div.scrollTop = div.scrollHeight
+			}, 50)
 		}
 	},
 	components: {
