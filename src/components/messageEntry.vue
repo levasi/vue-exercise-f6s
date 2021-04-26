@@ -45,6 +45,9 @@ export default {
 	color: black;
 	width: 100%;
 	top: -20px;
+	border: 1px solid gray;
+	border-radius: 4px;
+	background-color: lightgray;
 }
 .thumb {
 	position: relative;
