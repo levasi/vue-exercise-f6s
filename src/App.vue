@@ -36,6 +36,8 @@ export default {
 					})
 					.then((response) => {
 						this.message = null
+					})
+					.finally(() => {
 						this.scrollToBottom()
 					})
 			}
@@ -49,7 +51,7 @@ export default {
 		scrollToBottom(id) {
 			setTimeout(() => {
 				var div = document.getElementById("ConversationWrapper")
-				div.scrollTop = div.scrollHeight
+				div.scrollTop = div.scrollHeight + 100
 			}, 50)
 		}
 	},
@@ -59,7 +61,9 @@ export default {
 		messageEntry
 	},
 	mounted() {
-		this.setAllMessages()
+		this.setAllMessages().then((response) => {
+			this.scrollToBottom()
+		})
 		this.setCurrentUser()
 		this.currentUser = this.$store.getters.getCurrentUser
 	}

@@ -15,7 +15,7 @@ export default {
 
 <style lang="scss">
 .conversation-wrapper {
-	height: 80vh;
+	height: 400px;
 	overflow-y: scroll;
 }
 .conversation-area {

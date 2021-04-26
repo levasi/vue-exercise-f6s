@@ -1,6 +1,7 @@
 import { createStore } from "vuex"
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
+
 export default createStore({
 	state: {
 		conversation: [],
@@ -23,14 +24,19 @@ export default createStore({
 		async setAllMessages(context) {
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
-			await import("../mockapi.js")
+
+			const conversation = await import("../mockapi.js")
 				.then((api) => {
 					// Do something with the module.
 					context.commit("SET_ALL_MESSAGES", JSON.parse(api.conversation))
+					return JSON.parse(api.conversation)
 				})
 				.catch((error) => {
 					console.log(error)
 				})
+			return new Promise((resolve, reject) => {
+				resolve(conversation)
+			})
 		},
 		async setCurrentUser(context) {
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
