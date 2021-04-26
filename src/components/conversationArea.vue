@@ -1,5 +1,5 @@
 <template>
-	<div class="conversation-wrapper">
+	<div class="conversation-wrapper" id="ConversationWrapper">
 		<div class="conversation-area">
 			<slot></slot>
 		</div>
@@ -8,7 +8,8 @@
 
 <script>
 export default {
-	name: "ConversationArea"
+	name: "ConversationArea",
+	methods: {}
 }
 </script>
 

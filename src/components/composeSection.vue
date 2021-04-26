@@ -15,6 +15,10 @@ export default {
 		}
 	},
 	methods: {
+		scrollToBottom(id) {
+			var div = document.getElementById("ConversationWrapper")
+			div.scrollTop = div.scrollHeight - div.clientHeight
+		},
 		onInput(e) {
 			console.log(e.target.value)
 			this.$emit("input", e.target.value)
@@ -34,6 +38,7 @@ export default {
 				})
 				this.newMessage = null
 				this.$store.commit("setAllMessages")
+				this.scrollToBottom()
 			}
 		}
 	}
@@ -42,6 +47,7 @@ export default {
 
 <style lang="scss">
 .compose-section {
+	height: 50px;
 	display: flex;
 	textarea {
 		width: 100%;
