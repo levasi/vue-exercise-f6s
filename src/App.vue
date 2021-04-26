@@ -26,7 +26,7 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions(["setAllMessages", "setCurrentUser"]),
+		...mapActions(["setAllMessages"]),
 		sendReply() {
 			console.log(this.message)
 		}
@@ -38,7 +38,8 @@ export default {
 	},
 	mounted() {
 		this.setAllMessages()
-		this.setCurrentUser()
+		this.$store.commit("setCurrentUser")
+		this.$store.commit("setAllMessages")
 		this.currentUser = this.$store.getters.getCurrentUser
 		console.log(this.currentUser)
 	}
